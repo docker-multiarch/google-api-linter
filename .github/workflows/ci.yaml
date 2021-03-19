@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - README.md
+      - LICENSE
+  pull_request:
+    paths-ignore:
+      - README.md
+      - LICENSE
+
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: hadolint
+        uses: brpaz/hadolint-action@master
