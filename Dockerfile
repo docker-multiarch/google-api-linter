@@ -6,14 +6,14 @@ ARG TARGETARCH
 RUN CGO_ENABLED=0 \
 	GOOS=${TARGETOS} \
 	GOARCH=${TARGETARCH} \
-	go install -ldflags '-s -w -extldflags "-static"' github.com/googleapis/api-linter/cmd/api-linter@v1.18.0
+	go install -ldflags '-s -w -extldflags "-static"' github.com/googleapis/api-linter/cmd/api-linter@v1.19.0
 
 RUN find bin -name 'api-linter' -executable -exec cp -- "{}" /go/bin \;
 
 FROM alpine:3
 
 LABEL org.opencontainers.image.source=https://github.com/docker-multiarch/google-api-linter \
-	org.opencontainers.image.version=v1.18.0
+	org.opencontainers.image.version=v1.19.0
 
 COPY --from=builder /go/bin/api-linter /usr/local/bin
 
