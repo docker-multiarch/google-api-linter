@@ -6,7 +6,7 @@ ARG TARGETARCH
 RUN CGO_ENABLED=0 \
 	GOOS=${TARGETOS} \
 	GOARCH=${TARGETARCH} \
-	go install -ldflags '-s -w -extldflags "-static"' github.com/googleapis/api-linter/cmd/api-linter@v1.26.0
+	go install -ldflags '-s -w -extldflags "-static"' github.com/googleapis/api-linter/cmd/api-linter@v1.26.1
 
 RUN find bin -name 'api-linter' -executable -exec cp -- "{}" /go/bin \;
 
