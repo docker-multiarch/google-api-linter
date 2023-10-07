@@ -2,19 +2,17 @@ name: CI
 
 on:
   push:
-    paths-ignore:
-      - README.md
-      - LICENSE
+    paths:
+      - Dockerfile
   pull_request:
-    paths-ignore:
-      - README.md
-      - LICENSE
+    paths:
+      - Dockerfile
 
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: hadolint
-        uses: hadolint/hadolint-action@v2.1.0
+        uses: hadolint/hadolint-action@v3.1.0
